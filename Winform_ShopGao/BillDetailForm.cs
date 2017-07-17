@@ -15,7 +15,7 @@ namespace Winform_ShopGao
     public partial class BillDetailForm : Form
     {
         private readonly BillBusinessLogic _billBusinessLogic;
-        private readonly BillDetailBusinessLogicLayer _billDetailBusinessLogicLayer;
+        private readonly BillDetailBusinessLogic _billDetailBusinessLogicLayer;
         private readonly ShipperBussinessLogic _shipperBussinessLogic;
         private readonly UserBusinessLogic _userBusinessLogic;
         private readonly ProductBusinessLogic _productBusinessLogic;
@@ -32,7 +32,7 @@ namespace Winform_ShopGao
         {
             InitializeComponent();
             _billBusinessLogic = new BillBusinessLogic();
-            _billDetailBusinessLogicLayer = new BillDetailBusinessLogicLayer();
+            _billDetailBusinessLogicLayer = new BillDetailBusinessLogic();
             _shipperBussinessLogic = new ShipperBussinessLogic();
             _userBusinessLogic = new UserBusinessLogic();
             _productBusinessLogic = new ProductBusinessLogic();

@@ -38,7 +38,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BillBusinessLogic.cs" />
-    <Compile Include="BillDetailBusinessLogicLayer.cs" />
+    <Compile Include="BillDetailBusinessLogic.cs" />
     <Compile Include="ImportBusinessLogic.cs" />
     <Compile Include="ProductBusinessLogic.cs" />
     <Compile Include="ProductTypeBusinessLogic.cs" />

@@ -9,11 +9,11 @@ using ValueObject;
 
 namespace BusinessLogicLayer
 {
-    public class BillDetailBusinessLogicLayer
+    public class BillDetailBusinessLogic
     {
         private BillDetailDataAccessLayer _billDetailDataAccessLayer;
 
-        public BillDetailBusinessLogicLayer()
+        public BillDetailBusinessLogic()
         {
             _billDetailDataAccessLayer = new BillDetailDataAccessLayer();
         }
