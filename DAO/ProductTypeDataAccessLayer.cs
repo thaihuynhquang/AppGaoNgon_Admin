@@ -19,7 +19,7 @@ namespace DAO
 
         public DataTable GetAllProductTypes()
         {
-            const string query = "select * from product_type";
+            const string query = "select * from product_type ORDER BY name";
             return _mySqlDbConnection.ExecuteSelectQuery(query);
         }
 

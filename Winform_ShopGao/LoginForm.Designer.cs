@@ -81,7 +81,7 @@
             this.txtB_Password.PasswordChar = '*';
             this.txtB_Password.Size = new System.Drawing.Size(163, 20);
             this.txtB_Password.TabIndex = 4;
-            this.txtB_Password.Text = "admin123";
+            this.txtB_Password.Text = "admin456";
             // 
             // LoginForm
             // 
@@ -95,7 +95,10 @@
             this.Controls.Add(this.btt_SignIn);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(383, 265);
+            this.MinimumSize = new System.Drawing.Size(383, 265);
             this.Name = "LoginForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Đăng nhập";
             this.ResumeLayout(false);
             this.PerformLayout();

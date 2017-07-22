@@ -28,7 +28,8 @@ namespace Winform_ShopGao
             var  success = _adminDataAccessLayer.Login(username, password);
             if (!success)
             {
-                MessageBox.Show("Đăng nhập không thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Đăng nhập không thành công. Kiểm tra lại mật khẩu.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtB_Password.Text = "";
             }
             else
             {

@@ -126,7 +126,10 @@
             this.Controls.Add(this.txtB_NameProductType);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(478, 519);
+            this.MinimumSize = new System.Drawing.Size(478, 519);
             this.Name = "NewProductTypeForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản lý loại sản phẩm";
             ((System.ComponentModel.ISupportInitialize)(this.picBox_ImageProductType)).EndInit();
             this.ResumeLayout(false);

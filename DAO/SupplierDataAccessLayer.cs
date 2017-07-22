@@ -16,7 +16,7 @@ namespace DAO
 
         public DataTable GetAllSupplier()
         {
-            const string query = "select * from suppliers";
+            const string query = "select * from suppliers ORDER BY name";
             return _mySqlDbConnection.ExecuteSelectQuery(query);
         }
 

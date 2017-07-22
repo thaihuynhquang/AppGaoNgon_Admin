@@ -19,7 +19,7 @@ namespace DAO
 
         public DataTable GetAllShippers()
         {
-            const string query = "select * from shippers";
+            const string query = "select * from shippers ORDER BY name";
             return _mySqlDbConnection.ExecuteSelectQuery(query);
         }
 

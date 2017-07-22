@@ -52,5 +52,19 @@ namespace Winform_ShopGao
                 }
             }
         }
+
+        private void txtB_rePass_Leave(object sender, EventArgs e)
+        {
+            newPass = txtB_ChangePass.Text.Trim();
+            rePass = txtB_rePass.Text.Trim();
+            if (!newPass.Equals(rePass))
+            {
+                var action = MessageBox.Show("Nhập lại mật khẩu không khớp, hãy kiểm tra lại.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if(action == DialogResult.OK)
+                {
+                    txtB_rePass.Text = "";
+                }
+            }
+        }
     }
 }

@@ -81,6 +81,7 @@
             this.txtB_rePass.PasswordChar = '*';
             this.txtB_rePass.Size = new System.Drawing.Size(156, 20);
             this.txtB_rePass.TabIndex = 4;
+            this.txtB_rePass.Leave += new System.EventHandler(this.txtB_rePass_Leave);
             // 
             // ChangePassForm
             // 
@@ -94,7 +95,10 @@
             this.Controls.Add(this.btn_ChangePass);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(366, 257);
+            this.MinimumSize = new System.Drawing.Size(366, 257);
             this.Name = "ChangePassForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Thay đổi mật khẩu";
             this.ResumeLayout(false);
             this.PerformLayout();

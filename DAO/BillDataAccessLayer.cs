@@ -19,7 +19,7 @@ namespace DAO
 
         public DataTable GetAllBill()
         {
-            const string query = "select * from bill";
+            const string query = "select * from bill ORDER BY date_order DESC";
             return _mySqlDbConnection.ExecuteSelectQuery(query);
         }
 

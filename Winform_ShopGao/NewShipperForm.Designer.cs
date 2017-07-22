@@ -126,7 +126,10 @@
             this.Controls.Add(this.lb_NameShipper);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(455, 300);
+            this.MinimumSize = new System.Drawing.Size(455, 300);
             this.Name = "NewShipperForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản lý nhân viên giao hàng";
             this.ResumeLayout(false);
             this.PerformLayout();

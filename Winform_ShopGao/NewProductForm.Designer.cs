@@ -228,7 +228,10 @@
             this.Controls.Add(this.btn_NewProduct);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(937, 536);
+            this.MinimumSize = new System.Drawing.Size(937, 536);
             this.Name = "NewProductForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản lý sản phẩm";
             this.VisibleChanged += new System.EventHandler(this.NewProductForm_VisibleChanged);
             ((System.ComponentModel.ISupportInitialize)(this.picB_ImageProduct)).EndInit();
