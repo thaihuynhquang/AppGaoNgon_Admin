@@ -230,6 +230,7 @@
             this.supplierGridControl.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.supplierGridControl.Size = new System.Drawing.Size(946, 340);
             this.supplierGridControl.TabIndex = 0;
+            this.supplierGridControl.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.supplierGridControl_ColumnHeaderMouseClick);
             // 
             // tabNaviPage_SanPham
             // 
@@ -328,6 +329,7 @@
             this.productGridControl.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.productGridControl.Size = new System.Drawing.Size(946, 340);
             this.productGridControl.TabIndex = 0;
+            this.productGridControl.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.productGridControl_ColumnHeaderMouseClick);
             // 
             // tabNaviPage_KhachHang
             // 
@@ -338,7 +340,7 @@
             this.tabNaviPage_KhachHang.Controls.Add(this.btn_RefreshDataCustomer);
             this.tabNaviPage_KhachHang.Controls.Add(this.userGridControl);
             this.tabNaviPage_KhachHang.Name = "tabNaviPage_KhachHang";
-            this.tabNaviPage_KhachHang.Size = new System.Drawing.Size(979, 557);
+            this.tabNaviPage_KhachHang.Size = new System.Drawing.Size(977, 482);
             this.tabNaviPage_KhachHang.VisibleChanged += new System.EventHandler(this.tabNaviPage_KhachHang_VisibleChanged);
             // 
             // btn_ClearCustomer
@@ -400,6 +402,7 @@
             this.userGridControl.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.userGridControl.Size = new System.Drawing.Size(946, 340);
             this.userGridControl.TabIndex = 0;
+            this.userGridControl.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.userGridControl_ColumnHeaderMouseClick);
             // 
             // tabNaviPage_DonHang
             // 
@@ -411,7 +414,7 @@
             this.tabNaviPage_DonHang.Controls.Add(this.btn_newBill);
             this.tabNaviPage_DonHang.Controls.Add(this.billGridControl);
             this.tabNaviPage_DonHang.Name = "tabNaviPage_DonHang";
-            this.tabNaviPage_DonHang.Size = new System.Drawing.Size(979, 554);
+            this.tabNaviPage_DonHang.Size = new System.Drawing.Size(977, 482);
             this.tabNaviPage_DonHang.VisibleChanged += new System.EventHandler(this.tabNaviPage_DonHang_VisibleChanged);
             // 
             // btn_ClearBill
@@ -485,6 +488,7 @@
             this.billGridControl.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.billGridControl.Size = new System.Drawing.Size(946, 340);
             this.billGridControl.TabIndex = 0;
+            this.billGridControl.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.billGridControl_ColumnHeaderMouseClick);
             // 
             // tabNaviPage_NhapHang
             // 
@@ -583,6 +587,7 @@
             this.importGridControl.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.importGridControl.Size = new System.Drawing.Size(946, 340);
             this.importGridControl.TabIndex = 0;
+            this.importGridControl.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.importGridControl_ColumnHeaderMouseClick);
             // 
             // tabNaviPage_GiaoHang
             // 
@@ -595,7 +600,7 @@
             this.tabNaviPage_GiaoHang.Controls.Add(this.btn_InsertShipper);
             this.tabNaviPage_GiaoHang.Controls.Add(this.shippersGridControl);
             this.tabNaviPage_GiaoHang.Name = "tabNaviPage_GiaoHang";
-            this.tabNaviPage_GiaoHang.Size = new System.Drawing.Size(979, 554);
+            this.tabNaviPage_GiaoHang.Size = new System.Drawing.Size(977, 482);
             this.tabNaviPage_GiaoHang.VisibleChanged += new System.EventHandler(this.tabNaviPage_Shipper_VisibleChanged);
             // 
             // btn_ClearShipper
@@ -681,6 +686,7 @@
             this.shippersGridControl.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.shippersGridControl.Size = new System.Drawing.Size(946, 340);
             this.shippersGridControl.TabIndex = 0;
+            this.shippersGridControl.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.shippersGridControl_ColumnHeaderMouseClick);
             // 
             // tabNaviPage_LoaiSanPham
             // 
@@ -693,7 +699,7 @@
             this.tabNaviPage_LoaiSanPham.Controls.Add(this.btn_InsertProductType);
             this.tabNaviPage_LoaiSanPham.Controls.Add(this.productTypeGridControl);
             this.tabNaviPage_LoaiSanPham.Name = "tabNaviPage_LoaiSanPham";
-            this.tabNaviPage_LoaiSanPham.Size = new System.Drawing.Size(979, 554);
+            this.tabNaviPage_LoaiSanPham.Size = new System.Drawing.Size(977, 482);
             this.tabNaviPage_LoaiSanPham.VisibleChanged += new System.EventHandler(this.tabNaviPage_ProductType_VisibleChanged);
             // 
             // btn_ClearProductType
@@ -779,6 +785,7 @@
             this.productTypeGridControl.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.productTypeGridControl.Size = new System.Drawing.Size(946, 340);
             this.productTypeGridControl.TabIndex = 0;
+            this.productTypeGridControl.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.productTypeGridControl_ColumnHeaderMouseClick);
             // 
             // btn_ChangePass
             // 

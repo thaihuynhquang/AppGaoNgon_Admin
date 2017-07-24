@@ -15,6 +15,13 @@ namespace Winform_ShopGao
         private readonly ShipperBussinessLogic _shipperBusinessLogic;
         private readonly ProductTypeBusinessLogic _productTypeBusinessLogic;
         private readonly ImportBusinessLogic _importBusinessLogic;
+        private bool _currentBillDetailSortAsc;
+        private bool _currentSuppliesSortAsc;
+        private bool _currentImportsSortAsc;
+        private bool _currentProductsSortAsc;
+        private bool _currentProductTypesSortAsc;
+        private bool _currentShippersSortAsc;
+        private bool _currentUsersSortAsc;
 
         public MainForm()
         {
@@ -26,6 +33,15 @@ namespace Winform_ShopGao
             _shipperBusinessLogic = new ShipperBussinessLogic();
             _productTypeBusinessLogic = new ProductTypeBusinessLogic();
             _importBusinessLogic = new ImportBusinessLogic();
+
+            _currentBillDetailSortAsc = true;
+            _currentSuppliesSortAsc = true;
+            _currentImportsSortAsc = true;
+            _currentProductsSortAsc = true;
+            _currentProductTypesSortAsc = true;
+            _currentShippersSortAsc = true;
+            _currentUsersSortAsc = true;
+
         }
 
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
@@ -462,6 +478,165 @@ namespace Winform_ShopGao
             txtB_SearchImport.Text = "";
         }
 
-        
+        private void billGridControl_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            var selectedColumn = e.ColumnIndex;
+
+            var data = _billBusinessLogic.GetAllBill().First();
+            var properties = data.GetAllProperties();
+            var selectProperty = properties.ElementAt(selectedColumn);
+
+            if(_currentBillDetailSortAsc)
+            {
+                _currentBillDetailSortAsc = false;
+                billGridControl.DataSource = _billBusinessLogic.GetAllBill()
+                    .OrderByDescending(x => x.GetType().GetProperty(selectProperty.Name)?.GetValue(x, null)).ToList();
+            }
+            else
+            {
+                _currentBillDetailSortAsc = true;
+                billGridControl.DataSource = _billBusinessLogic.GetAllBill()
+                    .OrderBy(x => x.GetType().GetProperty(selectProperty.Name)?.GetValue(x, null)).ToList();
+            }
+            billGridControl.Refresh();
+        }
+
+        private void supplierGridControl_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            var selectedColumn = e.ColumnIndex;
+
+            var data = _supplierBusinessLogic.GetallSupplier().First();
+            var properties = data.GetAllProperties();
+            var selectProperty = properties.ElementAt(selectedColumn);
+
+            if (_currentSuppliesSortAsc)
+            {
+                _currentSuppliesSortAsc = false;
+                supplierGridControl.DataSource = _supplierBusinessLogic.GetallSupplier()
+                    .OrderByDescending(x => x.GetType().GetProperty(selectProperty.Name)?.GetValue(x, null)).ToList();
+            }
+            else
+            {
+                _currentSuppliesSortAsc = true;
+                supplierGridControl.DataSource = _supplierBusinessLogic.GetallSupplier()
+                    .OrderBy(x => x.GetType().GetProperty(selectProperty.Name)?.GetValue(x, null)).ToList();
+            }
+            supplierGridControl.Refresh();
+        }
+
+        private void importGridControl_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            var selectedColumn = e.ColumnIndex;
+
+            var data = _importBusinessLogic.GetAllImportProducts().First();
+            var properties = data.GetAllProperties();
+            var selectProperty = properties.ElementAt(selectedColumn);
+
+            if (_currentImportsSortAsc)
+            {
+                _currentImportsSortAsc = false;
+                importGridControl.DataSource = _importBusinessLogic.GetAllImportProducts()
+                    .OrderByDescending(x => x.GetType().GetProperty(selectProperty.Name)?.GetValue(x, null)).ToList();
+            }
+            else
+            {
+                _currentImportsSortAsc = true;
+                importGridControl.DataSource = _importBusinessLogic.GetAllImportProducts()
+                    .OrderBy(x => x.GetType().GetProperty(selectProperty.Name)?.GetValue(x, null)).ToList();
+            }
+            importGridControl.Refresh();
+        }
+
+        private void productGridControl_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            var selectedColumn = e.ColumnIndex;
+
+            var data = _productBusinessLogic.GetAllProduct().First();
+            var properties = data.GetAllProperties();
+            var selectProperty = properties.ElementAt(selectedColumn);
+
+            if (_currentProductsSortAsc)
+            {
+                _currentProductsSortAsc = false;
+                productGridControl.DataSource = _productBusinessLogic.GetAllProduct()
+                    .OrderByDescending(x => x.GetType().GetProperty(selectProperty.Name)?.GetValue(x, null)).ToList();
+            }
+            else
+            {
+                _currentProductsSortAsc = true;
+                productGridControl.DataSource = _productBusinessLogic.GetAllProduct()
+                    .OrderBy(x => x.GetType().GetProperty(selectProperty.Name)?.GetValue(x, null)).ToList();
+            }
+            productGridControl.Refresh();
+        }
+
+        private void productTypeGridControl_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            var selectedColumn = e.ColumnIndex;
+
+            var data = _productTypeBusinessLogic.GetAllProductTypes().First();
+            var properties = data.GetAllProperties();
+            var selectProperty = properties.ElementAt(selectedColumn);
+
+            if (_currentProductTypesSortAsc)
+            {
+                _currentProductTypesSortAsc = false;
+                productTypeGridControl.DataSource = _productTypeBusinessLogic.GetAllProductTypes()
+                    .OrderByDescending(x => x.GetType().GetProperty(selectProperty.Name)?.GetValue(x, null)).ToList();
+            }
+            else
+            {
+                _currentProductTypesSortAsc = true;
+                productTypeGridControl.DataSource = _productTypeBusinessLogic.GetAllProductTypes()
+                    .OrderBy(x => x.GetType().GetProperty(selectProperty.Name)?.GetValue(x, null)).ToList();
+            }
+            productTypeGridControl.Refresh();
+        }
+
+        private void shippersGridControl_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            var selectedColumn = e.ColumnIndex;
+
+            var data = _shipperBusinessLogic.GetAllShippers().First();
+            var properties = data.GetAllProperties();
+            var selectProperty = properties.ElementAt(selectedColumn);
+
+            if (_currentShippersSortAsc)
+            {
+                _currentShippersSortAsc = false;
+                shippersGridControl.DataSource = _shipperBusinessLogic.GetAllShippers()
+                    .OrderByDescending(x => x.GetType().GetProperty(selectProperty.Name)?.GetValue(x, null)).ToList();
+            }
+            else
+            {
+                _currentShippersSortAsc = true;
+                shippersGridControl.DataSource = _shipperBusinessLogic.GetAllShippers()
+                    .OrderBy(x => x.GetType().GetProperty(selectProperty.Name)?.GetValue(x, null)).ToList();
+            }
+            shippersGridControl.Refresh();
+        }
+
+        private void userGridControl_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            var selectedColumn = e.ColumnIndex;
+
+            var data = _userBusinessLogic.GetAllUser().First();
+            var properties = data.GetAllProperties();
+            var selectProperty = properties.ElementAt(selectedColumn);
+
+            if (_currentUsersSortAsc)
+            {
+                _currentUsersSortAsc = false;
+                userGridControl.DataSource = _userBusinessLogic.GetAllUser()
+                    .OrderByDescending(x => x.GetType().GetProperty(selectProperty.Name)?.GetValue(x, null)).ToList();
+            }
+            else
+            {
+                _currentUsersSortAsc = true;
+                userGridControl.DataSource = _userBusinessLogic.GetAllUser()
+                    .OrderBy(x => x.GetType().GetProperty(selectProperty.Name)?.GetValue(x, null)).ToList();
+            }
+            userGridControl.Refresh();
+        }
     }
 }
