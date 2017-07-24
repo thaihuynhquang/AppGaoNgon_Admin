@@ -31,8 +31,11 @@ namespace ValueObject
             this.Dis = dis;
             this.City = city;
             this.Note = note;
-            this.Status = status == 1 ? "Đã xong" : "Đang chờ";
             this.IdShipper = idShipper;
+            if (status == 0) this.Status = "Chưa xử lý";
+            if (status == 1) this.Status = "Đang giao hàng";
+            if (status == 2) this.Status = "Hoàn thành";
+            if (status == 3) this.Status = "Đã hủy";
         }
     }
 }

@@ -47,6 +47,7 @@ namespace Winform_ShopGao
             rTxtB_Note.Enabled = false;
 
             bill = _billBusinessLogic.GetBillById(_BillId);
+
             txtB_BillId.Text = bill.Id.ToString();
             txtB_BillStatus.Text = bill.Status;
             txtB_DateOrder.Text = bill.DateOrder.ToString();
@@ -55,6 +56,30 @@ namespace Winform_ShopGao
             txtB_Dis.Text = bill.Dis;
             txtB_city.Text = bill.City;
             rTxtB_Note.Text = bill.Note;
+
+            if(bill.Status == "Chưa xử lý")
+            {
+                btn_StatusDaXuLy.Enabled = false;
+                btn_StatusHoanThanh.Enabled = false;
+            }
+            if (bill.Status == "Đang giao hàng")
+            {
+                btn_StatusDaXuLy.Enabled = false;
+            }
+            if (bill.Status == "Hoàn thành")
+            {
+                btn_StatusDaXuLy.Enabled = false;
+                btn_StatusHoanThanh.Enabled = false;
+                btn_StatusHuy.Enabled = false;
+                btn_Shipper.Enabled = false;
+            }
+            if (bill.Status == "Đã hủy")
+            {
+                btn_StatusDaXuLy.Enabled = false;
+                btn_StatusHoanThanh.Enabled = false;
+                btn_StatusHuy.Enabled = false;
+                btn_Shipper.Enabled = false;
+            }
 
             customer = _userBusinessLogic.GetDetailUser(_CusId);
             txtB_NameCus.Text = customer.Name;
@@ -97,77 +122,6 @@ namespace Winform_ShopGao
             rTxtB_Note.Enabled = true;
         }
 
-        private void btn_ChangeBillStatus_Click(object sender, EventArgs e)
-        {
-            int pending = 0;
-            int complete = 1;
-            var action = MessageBox.Show("Đơn hàng đã được xử lý xong?", "Thay đổi trạng thái đơn hàng", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            if (action == DialogResult.Yes)
-            {
-                var updated = _billBusinessLogic.UpdateBillStatus(_BillId, complete);
-                if(updated)
-                {
-                    MessageBox.Show("Đơn hàng đã hoàn thành", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    bill = _billBusinessLogic.GetBillById(_BillId);
-                    txtB_BillStatus.Text = bill.Status;
-
-                    var billDetails = _billDetailBusinessLogicLayer.GetBillDetailsByBillId(_BillId);
-                    billDetails.ForEach(billDetail =>
-                    {
-                        var product = _productBusinessLogic.GetProductById(billDetail.Id);
-                        var unitOnBill = (long)product.unitOnBill;
-                        var unitInStock = (long)product.unitInStock;
-                        unitInStock = unitInStock - billDetail.Quantity;
-                        unitOnBill = unitOnBill - billDetail.Quantity;
-
-                        if (unitInStock < 0 || unitOnBill < 0) return;
-                        product.unitInStock = (uint)unitInStock;
-                        product.unitOnBill = (uint)unitOnBill;
-                        _productBusinessLogic.UpdateUnitInStock(product);
-                        _productBusinessLogic.UpdateUnitOnBill(product);
-
-                    });
-                }
-                else
-                {
-                    MessageBox.Show("Có lỗi, xin hãy thử lại sau.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                
-            }
-            if (action == DialogResult.No)
-            {
-                var updated = _billBusinessLogic.UpdateBillStatus(_BillId, pending);
-                if(updated)
-                {
-                    MessageBox.Show("Trạng thái đơn hàng đang chờ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    bill = _billBusinessLogic.GetBillById(_BillId);
-                    txtB_BillStatus.Text = bill.Status;
-
-                    var billDetails = _billDetailBusinessLogicLayer.GetBillDetailsByBillId(_BillId);
-                    billDetails.ForEach(billDetail =>
-                    {
-                        var product = _productBusinessLogic.GetProductById(billDetail.Id);
-                        var unitOnBill = (long)product.unitOnBill;
-                        var unitInStock = (long)product.unitInStock;
-                        unitInStock = unitInStock + billDetail.Quantity;
-                        unitOnBill = unitOnBill + billDetail.Quantity;
-                        
-                        product.unitInStock = (uint)unitInStock;
-                        product.unitOnBill = (uint)unitOnBill;
-                        _productBusinessLogic.UpdateUnitInStock(product);
-                        _productBusinessLogic.UpdateUnitOnBill(product);
-
-                    });
-                }
-                else
-                {
-                    MessageBox.Show("Có lỗi, xin hãy thử lại sau.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                
-            }
-        }
-
         private void cmb_Shipper_SelectedIndexChanged(object sender, EventArgs e)
         {
             _ShipperId = (int)cmb_Shipper.SelectedValue;
@@ -187,6 +141,7 @@ namespace Winform_ShopGao
                 if (updated)
                 {
                     MessageBox.Show("Cật nhật thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    btn_StatusDaXuLy.Enabled = true;
                 }
                 else
                 {
@@ -201,6 +156,112 @@ namespace Winform_ShopGao
             cmb_Shipper.ValueMember = "Id";
             cmb_Shipper.DataSource = _shipperBussinessLogic.GetAllShippers();
             btn_UpdateShipperForBill.Enabled = true;
+        }
+
+        private void btn_StatusDaXuLy_Click(object sender, EventArgs e)
+        {
+            int da_xu_ly = 1;
+            var action = MessageBox.Show("Đơn hàng đã được xử lý xong?", "Thay đổi trạng thái đơn hàng", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (action == DialogResult.Yes)
+            {
+                var updated = _billBusinessLogic.UpdateBillStatus(_BillId, da_xu_ly);
+                if (updated)
+                {
+                    MessageBox.Show("Đơn hàng đã xử lý xong", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    bill = _billBusinessLogic.GetBillById(_BillId);
+                    txtB_BillStatus.Text = bill.Status;
+                    btn_StatusHoanThanh.Enabled = true;
+                    btn_StatusDaXuLy.Enabled = false;
+                }
+                else
+                {
+                    MessageBox.Show("Có lỗi, xin hãy thử lại sau.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+            }
+        }
+
+        private void btn_StatusHoanThanh_Click(object sender, EventArgs e)
+        {
+            int da_hoan_thanh = 2;
+            var action = MessageBox.Show("Đơn hàng đã hoàn thành?", "Thay đổi trạng thái đơn hàng", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (action == DialogResult.Yes)
+            {
+                var updated = _billBusinessLogic.UpdateBillStatus(_BillId, da_hoan_thanh);
+                if (updated)
+                {
+                    MessageBox.Show("Đơn hàng đã hoàn thành", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    bill = _billBusinessLogic.GetBillById(_BillId);
+                    txtB_BillStatus.Text = bill.Status;
+                    
+                    var billDetails = _billDetailBusinessLogicLayer.GetBillDetailsByBillId(_BillId);
+                    billDetails.ForEach(billDetail =>
+                    {
+                        var product = _productBusinessLogic.GetProductById(billDetail.Id);
+                        var unitOnBill = (long)product.unitOnBill;
+                        var unitInStock = (long)product.unitInStock;
+                        unitInStock = unitInStock - billDetail.Quantity;
+                        unitOnBill = unitOnBill - billDetail.Quantity;
+
+                        if (unitInStock < 0 || unitOnBill < 0) return;
+                        product.unitInStock = (uint)unitInStock;
+                        product.unitOnBill = (uint)unitOnBill;
+                        _productBusinessLogic.UpdateUnitInStock(product);
+                        _productBusinessLogic.UpdateUnitOnBill(product);
+
+                    });
+                    btn_StatusDaXuLy.Enabled = false;
+                    btn_StatusHuy.Enabled = false;
+                    btn_Shipper.Enabled = false;
+                    btn_StatusHoanThanh.Enabled = false;
+                }
+                else
+                {
+                    MessageBox.Show("Có lỗi, xin hãy thử lại sau.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+            }
+        }
+
+        private void btn_StatusHuy_Click(object sender, EventArgs e)
+        {
+            int da_huy = 3;
+            var action = MessageBox.Show("Hủy bỏ đơn hàng này?", "Thay đổi trạng thái đơn hàng", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (action == DialogResult.Yes)
+            {
+                var updated = _billBusinessLogic.UpdateBillStatus(_BillId, da_huy);
+                if (updated)
+                {
+                    MessageBox.Show("Đơn hàng đã hủy", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    bill = _billBusinessLogic.GetBillById(_BillId);
+                    txtB_BillStatus.Text = bill.Status;
+
+                    var billDetails = _billDetailBusinessLogicLayer.GetBillDetailsByBillId(_BillId);
+                    billDetails.ForEach(billDetail =>
+                    {
+                        var product = _productBusinessLogic.GetProductById(billDetail.Id);
+                        var unitOnBill = (long)product.unitOnBill;
+                        unitOnBill = unitOnBill - billDetail.Quantity;
+
+                        if (unitOnBill < 0) return;
+                        product.unitOnBill = (uint)unitOnBill;
+                        _productBusinessLogic.UpdateUnitOnBill(product);
+
+                    });
+                    btn_StatusDaXuLy.Enabled = false;
+                    btn_StatusHoanThanh.Enabled = false;
+                    btn_StatusHuy.Enabled = false;
+                    btn_Shipper.Enabled = false;
+                }
+                else
+                {
+                    MessageBox.Show("Có lỗi, xin hãy thử lại sau.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+            }
         }
     }
 }

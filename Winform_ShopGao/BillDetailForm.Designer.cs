@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BillDetailForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle40 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle41 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle42 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.btn_UpdateNote = new System.Windows.Forms.Button();
@@ -68,9 +68,11 @@
             this.lb_ShipperName = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btn_Note = new System.Windows.Forms.Button();
-            this.btn_ChangeBillStatus = new System.Windows.Forms.Button();
+            this.btn_StatusHoanThanh = new System.Windows.Forms.Button();
             this.btn_Exit = new System.Windows.Forms.Button();
             this.btn_Shipper = new System.Windows.Forms.Button();
+            this.btn_StatusDaXuLy = new System.Windows.Forms.Button();
+            this.btn_StatusHuy = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -326,33 +328,33 @@
             // 
             // GridView_BillDetails
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.GridView_BillDetails.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle40.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle40.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle40.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle40.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle40.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle40.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle40.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.GridView_BillDetails.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle40;
             this.GridView_BillDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.GridView_BillDetails.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle41.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle41.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle41.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle41.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle41.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle41.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle41.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.GridView_BillDetails.DefaultCellStyle = dataGridViewCellStyle41;
             this.GridView_BillDetails.Location = new System.Drawing.Point(16, 42);
             this.GridView_BillDetails.Name = "GridView_BillDetails";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.GridView_BillDetails.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle42.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle42.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle42.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle42.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle42.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle42.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle42.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.GridView_BillDetails.RowHeadersDefaultCellStyle = dataGridViewCellStyle42;
             this.GridView_BillDetails.Size = new System.Drawing.Size(381, 323);
             this.GridView_BillDetails.TabIndex = 2;
             // 
@@ -467,7 +469,7 @@
             // btn_Note
             // 
             this.btn_Note.Image = ((System.Drawing.Image)(resources.GetObject("btn_Note.Image")));
-            this.btn_Note.Location = new System.Drawing.Point(507, 427);
+            this.btn_Note.Location = new System.Drawing.Point(726, 427);
             this.btn_Note.Name = "btn_Note";
             this.btn_Note.Size = new System.Drawing.Size(130, 50);
             this.btn_Note.TabIndex = 1;
@@ -476,17 +478,17 @@
             this.btn_Note.UseVisualStyleBackColor = true;
             this.btn_Note.Click += new System.EventHandler(this.btn_Note_Click);
             // 
-            // btn_ChangeBillStatus
+            // btn_StatusHoanThanh
             // 
-            this.btn_ChangeBillStatus.Image = ((System.Drawing.Image)(resources.GetObject("btn_ChangeBillStatus.Image")));
-            this.btn_ChangeBillStatus.Location = new System.Drawing.Point(654, 427);
-            this.btn_ChangeBillStatus.Name = "btn_ChangeBillStatus";
-            this.btn_ChangeBillStatus.Size = new System.Drawing.Size(200, 50);
-            this.btn_ChangeBillStatus.TabIndex = 2;
-            this.btn_ChangeBillStatus.Text = "Thay đổi trạng thái đơn hàng";
-            this.btn_ChangeBillStatus.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btn_ChangeBillStatus.UseVisualStyleBackColor = true;
-            this.btn_ChangeBillStatus.Click += new System.EventHandler(this.btn_ChangeBillStatus_Click);
+            this.btn_StatusHoanThanh.Image = ((System.Drawing.Image)(resources.GetObject("btn_StatusHoanThanh.Image")));
+            this.btn_StatusHoanThanh.Location = new System.Drawing.Point(170, 427);
+            this.btn_StatusHoanThanh.Name = "btn_StatusHoanThanh";
+            this.btn_StatusHoanThanh.Size = new System.Drawing.Size(200, 50);
+            this.btn_StatusHoanThanh.TabIndex = 2;
+            this.btn_StatusHoanThanh.Text = "Đơn hàng đã hoàn thành";
+            this.btn_StatusHoanThanh.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btn_StatusHoanThanh.UseVisualStyleBackColor = true;
+            this.btn_StatusHoanThanh.Click += new System.EventHandler(this.btn_StatusHoanThanh_Click);
             // 
             // btn_Exit
             // 
@@ -512,15 +514,41 @@
             this.btn_Shipper.UseVisualStyleBackColor = true;
             this.btn_Shipper.Click += new System.EventHandler(this.btn_Shipper_Click);
             // 
+            // btn_StatusDaXuLy
+            // 
+            this.btn_StatusDaXuLy.Image = ((System.Drawing.Image)(resources.GetObject("btn_StatusDaXuLy.Image")));
+            this.btn_StatusDaXuLy.Location = new System.Drawing.Point(384, 427);
+            this.btn_StatusDaXuLy.Name = "btn_StatusDaXuLy";
+            this.btn_StatusDaXuLy.Size = new System.Drawing.Size(200, 50);
+            this.btn_StatusDaXuLy.TabIndex = 5;
+            this.btn_StatusDaXuLy.Text = "Đơn hàng đang được giao";
+            this.btn_StatusDaXuLy.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btn_StatusDaXuLy.UseVisualStyleBackColor = true;
+            this.btn_StatusDaXuLy.Click += new System.EventHandler(this.btn_StatusDaXuLy_Click);
+            // 
+            // btn_StatusHuy
+            // 
+            this.btn_StatusHuy.Image = ((System.Drawing.Image)(resources.GetObject("btn_StatusHuy.Image")));
+            this.btn_StatusHuy.Location = new System.Drawing.Point(26, 427);
+            this.btn_StatusHuy.Name = "btn_StatusHuy";
+            this.btn_StatusHuy.Size = new System.Drawing.Size(130, 50);
+            this.btn_StatusHuy.TabIndex = 6;
+            this.btn_StatusHuy.Text = "Hủy đơn hàng";
+            this.btn_StatusHuy.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btn_StatusHuy.UseVisualStyleBackColor = true;
+            this.btn_StatusHuy.Click += new System.EventHandler(this.btn_StatusHuy_Click);
+            // 
             // BillDetailForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1252, 508);
+            this.Controls.Add(this.btn_StatusHuy);
+            this.Controls.Add(this.btn_StatusDaXuLy);
             this.Controls.Add(this.btn_Shipper);
             this.Controls.Add(this.btn_Exit);
-            this.Controls.Add(this.btn_ChangeBillStatus);
+            this.Controls.Add(this.btn_StatusHoanThanh);
             this.Controls.Add(this.btn_Note);
             this.Controls.Add(this.splitContainer1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -573,7 +601,7 @@
         private System.Windows.Forms.DataGridView GridView_BillDetails;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btn_Note;
-        private System.Windows.Forms.Button btn_ChangeBillStatus;
+        private System.Windows.Forms.Button btn_StatusHoanThanh;
         private System.Windows.Forms.Button btn_Exit;
         private System.Windows.Forms.TextBox txtB_ShipperPhone;
         private System.Windows.Forms.TextBox txtB_ShipperEmail;
@@ -587,5 +615,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btn_UpdateShipperForBill;
         private System.Windows.Forms.Button btn_Shipper;
+        private System.Windows.Forms.Button btn_StatusDaXuLy;
+        private System.Windows.Forms.Button btn_StatusHuy;
     }
 }
