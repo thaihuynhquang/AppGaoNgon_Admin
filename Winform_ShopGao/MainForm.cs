@@ -142,7 +142,7 @@ namespace Winform_ShopGao
             {
                 var row = billGridControl.SelectedRows;
                 var cells = row[0].Cells;
-                var billDetailForm = new BillDetailForm(int.Parse(cells[0].Value.ToString()), int.Parse(cells[1].Value.ToString()), int.Parse(cells[10].Value.ToString())) { RefToFormMain = this };
+                var billDetailForm = new BillDetailForm(int.Parse(cells[2].Value.ToString()), int.Parse(cells[3].Value.ToString()), int.Parse(cells[1].Value.ToString())) { RefToFormMain = this };
                 billDetailForm.Show();
             }
             catch (Exception ex)
