@@ -161,14 +161,14 @@ namespace Winform_ShopGao
         private void btn_StatusDaXuLy_Click(object sender, EventArgs e)
         {
             int da_xu_ly = 1;
-            var action = MessageBox.Show("Đơn hàng đã được xử lý xong?", "Thay đổi trạng thái đơn hàng", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            var action = MessageBox.Show("Đơn hàng đã được xử lý xong, đang chờ giao hàng?", "Thay đổi trạng thái đơn hàng", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (action == DialogResult.Yes)
             {
                 var updated = _billBusinessLogic.UpdateBillStatus(_BillId, da_xu_ly);
                 if (updated)
                 {
-                    MessageBox.Show("Đơn hàng đã xử lý xong", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Đơn hàng đang chờ giao hàng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     bill = _billBusinessLogic.GetBillById(_BillId);
                     txtB_BillStatus.Text = bill.Status;
                     btn_StatusHoanThanh.Enabled = true;
